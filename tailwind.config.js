@@ -10,6 +10,11 @@ export default {
       fontFamily: {
         sans: ["Dana"],
       },
+      colors: {
+        "chekida-green": "#3DDC97",
+        "chekida-slate": "#002a32",
+        "chekida-gray": "#F5F5F7",
+      },
     },
     screens: {
       sm: "640px",

@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import NavUp from "./NavUp";
 import MenuBar from "./MenuBar";
 
 const NavBar = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(!open)
+  }
+
+    console.log(open);
   return (
     <div>
-      <NavUp />
-      <MenuBar />
+      <NavUp handleOpen={handleOpen} setOpen={setOpen}  open={open}/>
+      <MenuBar open={ open} />
     </div>
   );
 };
