@@ -8,12 +8,13 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Dana"],
+        sans: ["BonyadeKoodak"],
       },
       colors: {
         "chekida-green": "#3DDC97",
         "chekida-slate": "#002a32",
-        "chekida-gray": "#F5F5F7",
+        "chekida-gray": "#f1f1f2",
+        "chekida-slate-light": "#114B5F",
       },
     },
     screens: {

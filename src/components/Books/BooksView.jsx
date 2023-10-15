@@ -1,18 +1,17 @@
-import React, { useContext } from "react";
-import { bookContext } from "../Context/BookContext";
+import React from "react";
 import BookInList from "./BookInList";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 
 // Import Swiper React components
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
 // import required modules
 import { Navigation } from "swiper/modules";
+import { Link } from "react-router-dom";
 
-const BooksView = ({ navSlide }) => {
-  const booksList = useContext(bookContext);
+const BooksView = ({ navSlide , books , title , params }) => {
 
   const breakpoint = {
     320: {
@@ -42,28 +41,22 @@ const BooksView = ({ navSlide }) => {
     },
   };
 
-  console.log(booksList);
   return (
     <div>
       <div className="mx-auto xl:max-w-[1100px] my-12 flex flex-col">
         <div className="container flex flex-row justify-between items-center">
-          <h1 className="text-xl md:text-2xl font-bold">
-            جدیدترین خلاصه کتاب‌ها
-          </h1>
-          <a
-            className="flex flex-row justify-between items-center md:gap-3 gap-2 cursor-pointer"
-            href="#"
+          <h1 className="text-xl md:text-2xl font-bold">{title}</h1>
+          <Link
+            className="flex flex-row items-center md:gap-2 gap-1 cursor-pointer"
+            to={`/categories?category=${params}`}
           >
-            <p className="text-sm text-[--color-secondary] md:text-base">
+            <p className="text-xs md:text-sm text-gray-500 lg:text-base">
               مشاهده بقیه
             </p>
             <span>
-              <FaAngleLeft
-                size={20}
-                className="opacity-70 text-[--color-secondary]"
-              />
+              <FaAngleLeft className="opacity-70 text-gray-500 text-[15px] md:text-[18px] lg:text-[23px]" />
             </span>
-          </a>
+          </Link>
         </div>
 
         <div className="container py-4">
@@ -82,9 +75,9 @@ const BooksView = ({ navSlide }) => {
               }}
               breakpoints={breakpoint}
             >
-              {booksList.map((book) => (
-                <SwiperSlide>
-                  <BookInList key={book.id} book={book} />
+              {books.map((book) => (
+                <SwiperSlide key={book.id}>
+                  <BookInList book={book} />
                 </SwiperSlide>
               ))}
             </Swiper>

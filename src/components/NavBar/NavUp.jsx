@@ -5,9 +5,12 @@ import toast from "react-hot-toast";
 import { BiSolidUser } from "react-icons/bi";
 import { LuLogIn } from "react-icons/lu";
 import {RiSearchLine} from "react-icons/ri"
+import {HiMenu} from "react-icons/hi"
+import {IoClose} from "react-icons/io5"
+import {PiMedalFill} from "react-icons/pi"
 
 
-const NavUp = ({ handleOpen }) => {
+const NavUp = ({ handleOpen , open }) => {
   const { username, logout, isAuthenticated } = useAuth();
 
   const handleLogout = () => {
@@ -27,7 +30,7 @@ const NavUp = ({ handleOpen }) => {
   };
 
   return (
-    <div className="bg-white w-full lg:static fixed shadow-lg top-0 z-20">
+    <div className="bg-white w-full lg:static sticky shadow-md top-0 z-20">
       <nav id="nav" className="flex flex-col relative">
         <div className="container xl:max-w-[1100px] flex row justify-between items-center p-6 lg:px-6 lg:pt-4 lg:pb-2 ">
           {/* <!-- hamburger menu icon --> */}
@@ -36,39 +39,11 @@ const NavUp = ({ handleOpen }) => {
             onClick={handleOpen}
             className="cursor-pointer transition-all lg:hidden"
           >
-            <svg
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <line
-                y1="1"
-                x2="20"
-                y2="1"
-                stroke="#114B5F"
-                stroke-width="2px"
-                fill="none"
-              ></line>
-              <line
-                y1="8"
-                x2="20"
-                y2="8"
-                stroke="#114B5F"
-                stroke-width="2px"
-                fill="none"
-              ></line>
-              <line
-                y1="15"
-                x2="20"
-                y2="15"
-                stroke="#114B5F"
-                stroke-width="2px"
-                fill="none"
-              ></line>
-            </svg>
+            {!open ? (
+              <HiMenu size={30} className="text-chekida-slate" />
+            ) : (
+              <IoClose size={30} className="text-chekida-slate" />
+            )}
           </div>
           {/* chekida icon */}
           <Link to="/">
@@ -115,23 +90,20 @@ const NavUp = ({ handleOpen }) => {
             <RiSearchLine size={20} className="text-chekida-slate" />
           </form>
           {/* <!-- account icon --> */}
-          <div className="flex gap-4">
+          <div className="flex gap-4 ">
             <a className="group hidden btn btn-primary px-5 lg:flex lg:w-fit lg:h-auto gap-2 justify-center items-center hover:bg-chekida-slate hover:text-white transition-all">
-              <svg
-                className="w-5 h-auto fill-chekida-slate group-hover:fill-white"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                viewBox="0 0 18 18"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M9 11.25C11.7959 11.25 14.0625 9.06739 14.0625 6.375C14.0625 3.68261 11.7959 1.5 9 1.5C6.20406 1.5 3.9375 3.68261 3.9375 6.375C3.9375 9.06739 6.20406 11.25 9 11.25Z"></path>
-                <path d="M11.8425 11.7088C12.09 11.5813 12.375 11.7688 12.375 12.0463V15.6838C12.375 16.3588 11.9025 16.6888 11.3175 16.4113L9.3075 15.4588C9.135 15.3838 8.865 15.3838 8.6925 15.4588L6.6825 16.4113C6.0975 16.6813 5.625 16.3513 5.625 15.6763L5.64 12.0463C5.64 11.7688 5.9325 11.5888 6.1725 11.7088C7.02 12.1363 7.98 12.3763 9 12.3763C10.02 12.3763 10.9875 12.1363 11.8425 11.7088Z"></path>
-              </svg>
-              <p className="hidden lg:block text-xs">خرید اشتراک</p>
+              <PiMedalFill
+                size={20}
+                className="text-chekida-slate group-hover:fill-white"
+              />
+              <p className="hidden lg:block text-xs  font-semibold">
+                خرید اشتراک
+              </p>
             </a>
             <Link
               className={`group w-9 h-9 p-0 ${
                 username && "w-fit h-fit p-2"
-              } lg:w-fit lg:h-auto btn lg:px-5 lg:bg-white bg-slate-200 flex gap-2 justify-center items-center hover:bg-chekida-slate hover:text-white transition-all border-0 lg:border-2 border-chekida-slate`}
+              } lg:w-fit lg:h-auto btn lg:px-5 lg:bg-white bg-slate-200 flex gap-2 justify-center items-center lg:hover:bg-chekida-slate hover:text-white transition-all border-0 lg:border-2 border-chekida-slate`}
               to={isAuthenticated ? "/" : "/login"}
               onClick={handleLogout}
             >
@@ -144,7 +116,7 @@ const NavUp = ({ handleOpen }) => {
                 />
               )}
               <LuLogIn className="hidden lg:block w-5 h-auto stroke-chekida-slate group-hover:stroke-white" />
-              <p className="hidden lg:block text-xs font-medium">
+              <p className="hidden lg:block text-xs  font-semibold">
                 {username ? username : "ورود / ثبت‌نام"}
               </p>
             </Link>

@@ -11,9 +11,9 @@ const BookInList = ({ book }) => {
           className="w-28 lg:w-36 h-auto rounded-xl shadow-md transition-all"
           src={book.img}
         />
-        <p className="text-sm text-cyan-900 line-clamp-2">{book.title}</p>
+        <p className="text-sm text-chekida-slate line-clamp-2">{book.title}</p>
         <div className="flex justify-between items-center">
-          <p className="text-xs lg:text-sm opacity-50">{book.writer}</p>
+          <p className="text-xs lg:text-sm text-gray-400">{book.writer}</p>
           <span className="flex border lg:border-2 border-[--color-secondary] rounded-md justify-center items-center p-[2px]">
             <RiMicFill size={15} />
           </span>

@@ -5,7 +5,7 @@
 
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 13px;
 }
 
 /* Track */
@@ -28,88 +28,169 @@
 
 @layer base {
   @font-face {
-    font-family: 'Dana';
+    font-family: 'Modam';
     font-weight: 100;
-    src: url(/assets/fonts/Dana/eot/dana-thin.eot) format('embedded-opentype'),
-      url(/assets/fonts/Dana/woff2/Dana-Thin.woff2) format('woff2'),
-      url(/assets/fonts/Dana/woff/dana-thin.woff) format('woff'),
-      url(/assets/fonts/Dana/ttf/Dana-Thin.ttf) format('truetype');
+    src:
+      url(/assets/fonts/Modam/woff2/ModamFaNumWeb-ExtraLight.woff2) format('woff2'),
+      url(/assets/fonts/Modam/woff/ModamFaNumWeb-ExtraLight.woff) format('woff'),
+      url(/assets/fonts/Modam/ttf/ModamFaNum-ExtraLight.ttf) format('truetype');
   }
 
   @font-face {
-    font-family: 'Dana';
+    font-family: 'Modam';
     font-weight: 200;
-    src: url(/assets/fonts/Dana/eot/dana-light.eot) format('embedded-opentype'),
-      url(/assets/fonts/Dana/woff2/Dana-Light.woff2) format('woff2'),
-      url(/assets/fonts/Dana/woff/dana-light.woff) format('woff'),
-      url(/assets/fonts/Dana/ttf/Dana-Light.ttf) format('truetype');
+    src:
+      url(/assets/fonts/Modam/woff2/ModamFaNumWeb-Light.woff2) format('woff2'),
+        url(/assets/fonts/Modam/woff/ModamFaNumWeb-Light.woff) format('woff'),
+        url(/assets/fonts/Modam/ttf/ModamFaNum-Light.ttf) format('truetype');
 
   }
 
   @font-face {
-    font-family: 'Dana';
+    font-family: 'Modam';
     font-weight: 300;
-    src: url(/assets/fonts/Dana/eot/dana-regular.eot) format('embedded-opentype'),
-      url(/assets/fonts/Dana/woff2/Dana-Regular.woff2) format('woff2'),
-      url(/assets/fonts/Dana/woff/dana-regular.woff) format('woff'),
-      url(/assets/fonts/Dana/ttf/Dana-Regular.ttf) format('truetype');
+    src:
+      url(/assets/fonts/Modam/woff2/ModamFaNumWeb-Regular.woff2) format('woff2'),
+        url(/assets/fonts/Modam/woff/ModamFaNumWeb-Regular.woff) format('woff'),
+        url(/assets/fonts/Modam/ttf/ModamFaNum-Regular.ttf) format('truetype');
 
   }
 
   @font-face {
-    font-family: 'Dana';
+    font-family: 'Modam';
     font-weight: 400;
-    src: url(/assets/fonts/Dana/eot/dana-medium.eot) format('embedded-opentype'),
-      url(/assets/fonts/Dana/woff2/Dana-Medium.woff2) format('woff2'),
-      url(/assets/fonts/Dana/woff/dana-medium.woff) format('woff'),
-      url(/assets/fonts/Dana/ttf/Dana-Medium.ttf) format('truetype');
-
+    src:
+      url(/assets/fonts/Modam/woff2/ModamFaNumWeb-Medium.woff2) format('woff2'),
+      url(/assets/fonts/Modam/woff/ModamFaNumWeb-Medium.woff) format('woff'),
+      url(/assets/fonts/Modam/ttf/ModamFaNum-Medium.ttf) format('truetype');
   }
 
   @font-face {
-    font-family: 'Dana';
+    font-family: 'Modam';
     font-weight: 500;
-    src: url(/assets/fonts/Dana/eot/dana-demibold.eot) format('embedded-opentype'),
-      url(/assets/fonts/Dana/woff2/Dana-DemiBold.woff2) format('woff2'),
-      url(/assets/fonts/Dana/woff/dana-demibold.woff) format('woff'),
-      url(/assets/fonts/Dana/ttf/Dana-DemiBold.ttf) format('truetype');
+    src:
+      url(/assets/fonts/Modam/woff2/ModamFaNumWeb-SemiBold.woff2) format('woff2'),
+        url(/assets/fonts/Modam/woff/ModamFaNumWeb-SemiBold.woff) format('woff'),
+        url(/assets/fonts/Modam/ttf/ModamFaNum-SemiBold.ttf) format('truetype');
 
   }
 
   @font-face {
-    font-family: 'Dana';
+    font-family: 'Modam';
     font-weight: 600;
-    src: url(/assets/fonts/Dana/eot/dana-bold.eot) format('embedded-opentype'),
-      url(/assets/fonts/Dana/woff2/Dana-Bold.woff2) format('woff2'),
-      url(/assets/fonts/Dana/woff/dana-bold.woff) format('woff'),
-      url(/assets/fonts/Dana/ttf/Dana-Bold.ttf) format('truetype');
+    src:
+      url(/assets/fonts/Modam/woff2/ModamFaNumWeb-Bold.woff2) format('woff2'),
+        url(/assets/fonts/Modam/woff/ModamFaNumWeb-Bold.woff) format('woff'),
+        url(/assets/fonts/Modam/ttf/ModamFaNum-Bold.ttf) format('truetype');
 
   }
 
   @font-face {
-    font-family: 'Dana';
+    font-family: 'Modam';
     font-weight: 700;
-    src: url(/assets/fonts/Dana/eot/dana-extrabold.eot) format('embedded-opentype'),
-      url(/assets/fonts/Dana/woff2/Dana-ExtraBold.woff2) format('woff2'),
-      url(/assets/fonts/Dana/woff/dana-extrabold.woff) format('woff'),
-      url(/assets/fonts/Dana/ttf/Dana-ExtraBold.ttf) format('truetype');
-
+    src:
+      url(/assets/fonts/Modam/woff2/ModamFaNumWeb-ExtraBold.woff2) format('woff2'),
+        url(/assets/fonts/Modam/woff/ModamFaNumWeb-ExtraBold.woff) format('woff'),
+        url(/assets/fonts/Modam/ttf/ModamFaNum-ExtraBold.ttf) format('truetype');
   }
 
   @font-face {
-    font-family: 'Dana';
+    font-family: 'Modam';
     font-weight: 800;
     src:
-      url(/assets/fonts/Dana/eot/dana-black.eot) format('embedded-opentype'),
-      url(/assets/fonts/Dana/woff2/Dana-Black.woff2) format('woff2'),
-      url(/assets/fonts/Dana/woff/dana-black.woff) format('woff'),
-      url(/assets/fonts/Dana/ttf/Dana-Black.ttf) format('truetype');
 
+      url(/assets/fonts/Modam/woff2/ModamFaNumWeb-Black.woff2) format('woff2'),
+        url(/assets/fonts/Modam/woff/ModamFaNumWeb-Black.woff) format('woff'),
+        url(/assets/fonts/Modam/ttf/ModamFaNum-Black.ttf) format('truetype');
   }
+
+
+
+
+
+
+  /* ----------------- BomyadeKoodak ---------------- */
+
+    @font-face {
+      font-family: 'BonyadeKoodak';
+      font-weight: 100;
+      src:
+        url(/assets/fonts/BonyadeKoodak/woff2/BonyadeKoodakFaNum-Thin.woff2) format('woff2'),
+        url(/assets/fonts/BonyadeKoodak/woff/BonyadeKoodakFaNum-Thin.woff) format('woff'),
+        url(/assets/fonts/BonyadeKoodak/ttf/BonyadeKoodakFaNum-Thin.ttf) format('truetype');
+    }
+  
+    @font-face {
+      font-family: 'BonyadeKoodak';
+      font-weight: 200;
+      src:
+        url(/assets/fonts/BonyadeKoodak/woff2/BonyadeKoodakFaNum-ExtraLight.woff2) format('woff2'),
+          url(/assets/fonts/BonyadeKoodak/woff/BonyadeKoodakFaNum-ExtraLight.woff) format('woff'),
+          url(/assets/fonts/BonyadeKoodak/ttf/BonyadeKoodakFaNum-ExtraLight.ttf) format('truetype');
+        }
+  
+    
+  
+    @font-face {
+      font-family: 'BonyadeKoodak';
+      font-weight: 300;
+      src:
+        url(/assets/fonts/BonyadeKoodak/woff2/BonyadeKoodakFaNum-Light.woff2) format('woff2'),
+          url(/assets/fonts/BonyadeKoodak/woff/BonyadeKoodakFaNum-Light.woff) format('woff'),
+          url(/assets/fonts/BonyadeKoodak/ttf/BonyadeKoodakFaNum-Light.ttf) format('truetype');
+        }
+  
+    @font-face {
+      font-family: 'BonyadeKoodak';
+      font-weight: 400;
+      src:
+        url(/assets/fonts/BonyadeKoodak/woff2/BonyadeKoodakFaNum-Regular.woff2) format('woff2'),
+          url(/assets/fonts/BonyadeKoodak/woff/BonyadeKoodakFaNum-Regular.woff) format('woff'),
+          url(/assets/fonts/BonyadeKoodak/ttf/BonyadeKoodakFaNum-Regular.ttf) format('truetype');
+    }
+  
+    @font-face {
+      font-family: 'BonyadeKoodak';
+      font-weight: 500;
+      src:
+        url(/assets/fonts/BonyadeKoodak/woff2/BonyadeKoodakFaNum-Medium.woff2) format('woff2'),
+          url(/assets/fonts/BonyadeKoodak/woff/BonyadeKoodakFaNum-Medium.woff) format('woff'),
+          url(/assets/fonts/BonyadeKoodak/ttf/BonyadeKoodakFaNum-Medium.ttf) format('truetype');
+  
+    }
+  
+    @font-face {
+      font-family: 'BonyadeKoodak';
+      font-weight: 600;
+      src:
+        url(/assets/fonts/BonyadeKoodak/woff2/BonyadeKoodakFaNum-Bold.woff2) format('woff2'),
+          url(/assets/fonts/BonyadeKoodak/woff/BonyadeKoodakFaNum-Bold.woff) format('woff'),
+          url(/assets/fonts/BonyadeKoodak/ttf/BonyadeKoodakFaNum-Bold.ttf) format('truetype');
+  
+    }
+  
+    @font-face {
+      font-family: 'BonyadeKoodak';
+      font-weight: 700;
+      src:
+        url(/assets/fonts/BonyadeKoodak/woff2/BonyadeKoodakFaNum-ExtraBold.woff2) format('woff2'),
+          url(/assets/fonts/BonyadeKoodak/woff/BonyadeKoodakFaNum-ExtraBold.woff) format('woff'),
+          url(/assets/fonts/BonyadeKoodak/ttf/BonyadeKoodakFaNum-ExtraBold.ttf) format('truetype');
+    }
+  
+    @font-face {
+      font-family: 'BonyadeKoodak';
+      font-weight: 800;
+      src:
+  
+        url(/assets/fonts/BonyadeKoodak/woff2/BonyadeKoodakFaNum-Black.woff2) format('woff2'),
+          url(/assets/fonts/BonyadeKoodak/woff/BonyadeKoodakFaNum-Black.woff) format('woff'),
+          url(/assets/fonts/BonyadeKoodak/ttf/BonyadeKoodakFaNum-Black.ttf) format('truetype');
+    }
 }
 
 html {
-  font-family: 'Dana';
+  font-family: 'BonyadeKoodak';
 }
 
 body {
@@ -141,12 +222,12 @@ body {
     background-color: #fff;
     border: 2px solid var(--color-secondary);
     transition: .2s;
-    
+
   }
 
 }
 
 :root {
   --color-primary: #3DDC97;
-  --color-secondary : #002a32
+  --color-secondary: #002a32
 }

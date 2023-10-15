@@ -1,33 +1,56 @@
-import React from 'react';
+import React from "react";
+import { useBooks } from "../Context/BookContext";
+import {FaAngleLeft} from "react-icons/fa6"
+import { Link } from "react-router-dom";
 
-const Banner = () => {
-    return (
-        <div>
-            {/* <!-- start free book --> */}
-        <div className="container">
-            <div className="mx-auto xl:max-w-[1100px] flex flex-col gap-y-4 sm:flex-row sm:gap-8 lg:justify-evenly bg-purple-950 my-6 lg:mt-12 rounded-3xl py-6 md:p-12 px-8 items-center justify-center">
-                <div>
-                    <img className="w-32 md:w-40 lg:w-48 rounded-xl" src="./assets/4848bd5e71dd380819fbb40a046a6fc1.webp"/>
-                </div>
-                
-                <div className="flex flex-col lg:items-start gap-y-4 lg:justify-around lg:h-56">
-                    <h1 className="text-purple-400 text-center text-2xl md:text-3xl lg:text-6xl font-black">خلاصه کتاب رایگان هفته</h1>
-                    <p className="text-purple-400 text-center mt-2 text-sm md:text-lg md:font-bold lg:text-2xl">مغزت همیشه بهت دروغ میگه</p>
-                    <div className="group cursor-pointer hover:bg-purple-400 w-full border-[3px] transition-all border-purple-400 h-10 md:h-14 rounded-full flex flex-row justify-between">
-                        <a className="flex flex-row justify-center items-center text-sm md:text-lg md:font-medium w-5/6 bg-purple-400 text-purple-950 rounded-full" href="#">رایگان بخون یا گوش بده</a>
-        
-                        <div className="m-auto">
-                            <svg className="w-2 md:w-3 h-auto stroke-purple-400 group-hover:stroke-purple-900" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 15 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12.0004 24.5595L3.30711 15.8661C2.28044 14.8395 2.28044 13.1595 3.30711 12.1328L12.0004 3.43945" stroke="currect" stroke-width="5px" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
+const Banner = ({ id, color, titleFree }) => {
+  const books = useBooks();
+  const book = books.find((b) => b.id === id);
+
+  return (
+    <div>
+      {/* <!-- start free book --> */}
+      <div className="container">
+        <div
+          className={`mx-auto ${color.bg} xl:max-w-[1100px] flex flex-col gap-y-4 sm:flex-row sm:gap-8 lg:justify-evenly  my-6 lg:mt-12 rounded-3xl py-6 md:p-12 px-8 items-center justify-center`}
+        >
+          <div>
+            <img className="w-32 md:w-40 lg:w-48 rounded-xl" src={book.img} />
+          </div>
+
+          <div className="flex flex-col lg:items-start gap-y-4 lg:justify-around lg:h-56">
+            <h1
+              className={`${color.textOne} text-center text-2xl md:text-3xl lg:text-6xl font-black`}
+            >
+              {titleFree ? "خلاصه کتاب رایگان هفته" : "به پیشنهاد چکیدا بخون"}
+            </h1>
+            <p
+              className={`${color.textOne} text-center mt-2 text-sm md:text-lg md:font-semibold lg:text-2xl`}
+            >
+              {book.title}
+            </p>
+            <Link
+              to={`/bookDetail/${id}`}
+              className={`group cursor-pointer ${color.hover} w-full border-[3px] transition-all ${color.border} h-10 md:h-14 rounded-full flex flex-row justify-between`}
+            >
+              <span
+                className={`flex flex-row justify-center items-center text-sm md:text-lg md:font-medium ${color.bgTwo} w-5/6 ${color.textTwo} rounded-full`}
+              >
+                رایگان بخون یا گوش بده
+              </span>
+
+              <div className="m-auto">
+                <FaAngleLeft
+                  className={`${color.textOne} ${color.hoverGroup}  text-[15px] md:text-[18px] lg:text-[23px]`}
+                />
+              </div>
+            </Link>
+          </div>
         </div>
-        {/* <!-- finish free book --> */}
-        </div>
-    );
+      </div>
+      {/* <!-- finish free book --> */}
+    </div>
+  );
 };
 
 export default Banner;

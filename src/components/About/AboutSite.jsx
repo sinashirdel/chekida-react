@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FiChevronDown } from "react-icons/fi";
 
 const AboutSite = () => {
   const [openMore, setOpenMore] = useState(false);
@@ -9,10 +10,10 @@ const AboutSite = () => {
         className={`${!openMore ? "h-56" : "h-auto"}  overflow-hidden relative`}
       >
         <div className="container xl:max-w-[1100px] flex flex-col my-8 gap-4 items-start">
-          <h1 className="text-xl md:text-2xl font-black">
+          <h1 className="text-xl md:text-2xl font-bold">
             وبسایت و اپلیکیشن خلاصه کتاب
           </h1>
-          <p className="text-sm text-justify text-gray-700 font-normal leading-6">
+          <p className="text-sm text-justify text-chekida-slate font-normal leading-6">
             چکیدا وبسایت و اپلیکیشن خلاصه کتاب ها هست. برای خیلی‌از ما که زمان،
             آرامش فکری یا حتی حوصله‌ی کتاب‌خوندن رو نداریم، خوندن خلاصه کتاب ها
             بهترین راهکار برای استفاده از مفاهیم غنی کتاب‌ها و رشد و توسعه فردی
@@ -26,7 +27,7 @@ const AboutSite = () => {
             افزایش بده و تو رو در مسیر پیشرفت قرار بده؛ پس از الان که با چکیدا
             آشنا شدی، می‌تونی خودت رو جزو آدمای خوشبخت فرض کنی.
           </p>
-          <p className="text-sm text-justify text-gray-700 font-normal leading-6">
+          <p className="text-sm text-justify text-chekida-slate font-normal leading-6">
             نکته‌ی مهم درباره‌ی خلاصه کتاب های چکیدا اینه که تمام کتاب‌ها با لحن
             محاوره‌ای روایت میشن؛ درست همون لحنی که ما برای مکالمه‌ی روزمره ازش
             استفاده می‌کنیم. این اتفاق نه‌تنها باعث میشه تا محتوا رنگ‌و‌بوی
@@ -36,10 +37,10 @@ const AboutSite = () => {
             اتفاق باعث میشه تا ازطریق خلاصه کتاب بتونی مفاهیم کتاب‌های سنگین رو
             هم بخونی و متوجه بشی.
           </p>
-          <h2 className="text-xl md:text-xl font-black">
+          <h2 className="text-xl md:text-xl font-bold">
             <a>خلاصه کتاب های روانشناسی</a>
           </h2>
-          <p className="text-sm text-justify text-gray-700 font-normal leading-6">
+          <p className="text-sm text-justify text-chekida-slate font-normal leading-6">
             یکی از پرطرفدارترین موضوعات برای کتاب‌خوانی، موضوع روانشناسی هست.
             خوشبختانه چکیدا با آگاهی از این موضوع، سعی کرده تا بهترین کتاب های
             روانشناسی رو خلاصه کنه و نکات کلیدی اون‌ها رو در مدت‌زمانِ کوتاهی
@@ -47,10 +48,10 @@ const AboutSite = () => {
             ممکن سعی شده از روانشناسی زرد فاصله گرفته بشه و کتاب‌هایی انتخاب بشه
             که اولا حرف جدیدی رو ارائه میدن و ثانیا ارزش مطالعه‌ی بالایی دارن.
           </p>
-          <h2 className="text-xl md:text-xl font-black">
+          <h2 className="text-xl md:text-xl font-bold">
             <a>خلاصه کتاب های فلسفی</a>
           </h2>
-          <p className="text-sm text-justify text-gray-700 font-normal leading-6">
+          <p className="text-sm text-justify text-chekida-slate font-normal leading-6">
             وقتی به کتاب های فلسفی فکر می‌کنیم، عمدتا ذهنمون به‌سمت کتاب‌های
             قطور، سنگین و سخت‌فهمی میره که صرفا یه‌مشت خوره‌ی کتاب توانایی
             خوندنش رو دارن. البته این دیدگاه رو نمیشه غلط دونست، چون کتاب‌های
@@ -64,10 +65,10 @@ const AboutSite = () => {
             لحن، ارائه بده؛ بنابراین دیگه بهونه‌ای برای دوری از کتاب های فلسفی
             وجود نداره.
           </p>
-          <h2 className="text-xl md:text-xl font-black">
+          <h2 className="text-xl md:text-xl font-bold">
             <a>خلاصه کتاب های انگیزشی و موفقیت</a>
           </h2>
-          <p className="text-sm text-justify text-gray-700 font-normal leading-6">
+          <p className="text-sm text-justify text-chekida-slate font-normal leading-6">
             مقوله‌ی موفقیت موضوع جذابی برای اکثر افراد هست؛ اما رسیدن به موفقیت
             بدون داشتن انگیزه‌ی صحیح امکان‌پذیر نیست. انگیزه مثل سوختی می‌مونه
             که موتور موفقیت رو به حرکت وامی‌داره. خوندن زندگینامه‌ی بزرگان مثل{" "}
@@ -83,10 +84,10 @@ const AboutSite = () => {
             موفقیت بهت کمک می‌کنه تا ساده‌تر و سریع‌تر این طرز فکر رو بسازی و در
             مسیر موفقیت قدم بذاری.
           </p>
-          <h2 className="text-xl md:text-xl font-black">
+          <h2 className="text-xl md:text-xl font-bold">
             <a>خلاصه کتاب های تاریخی</a>
           </h2>
-          <p className="text-sm text-justify text-gray-700 font-normal leading-6">
+          <p className="text-sm text-justify text-chekida-slate font-normal leading-6">
             «ملتی که تاریخ نمی‌خونه، محکوم به تکرار تاریخ هست.» احتمالا این جمله
             حداقل یک‌بار به گوشِ‌ت خورده باشه. تاریخ پر از داستان‌های جذاب و
             عبرت‌آموزی هست که دونستنِ اون‌ها کمک به‌سزایی به ملت‌ها می‌کنه؛ اما
@@ -102,10 +103,10 @@ const AboutSite = () => {
             سریع‌ترین و مختصرترین حالتِ ممکن، به جواب همه‌ی این سوالات برسی و
             به‌نوبه‌ی خودت از تکرار اشتباهات تاریخی اجتناب کنی.
           </p>
-          <h2 className="text-xl md:text-xl font-black">
+          <h2 className="text-xl md:text-xl font-bold">
             <a>خلاصه کتاب های کسب و کار</a>
           </h2>
-          <p className="text-sm text-justify text-gray-700 font-normal leading-6">
+          <p className="text-sm text-justify text-chekida-slate font-normal leading-6">
             راه‌اندازی کسب و کار درکنار شجاعت، نیاز به دانش داره. به‌عنوان یک
             مدیر، باید درباره‌ی تیم‌‌سازی، مدیریت و رهبری، فرهنگ سازمانی،
             حسابرسی‌های مالی، مدیریت منابع، منابع انسانی و هزار و یک چیزِ دیگه،
@@ -114,10 +115,10 @@ const AboutSite = () => {
             موردِ دیگه، اطلاعات دقیقی رو از بهترین فعالان حوزه‌ی کسب و کار
             به‌دست بیاری و کسب و کار موفقِ خودت رو بسازی.
           </p>
-          <h2 className="text-xl md:text-xl font-black">
+          <h2 className="text-xl md:text-xl font-bold">
             <a>خلاصه کتاب های توسعه فردی</a>
           </h2>
-          <p className="text-sm text-justify text-gray-700 font-normal leading-6">
+          <p className="text-sm text-justify text-chekida-slate font-normal leading-6">
             رشد و توسعه‌ی مهارت‌های فردی یکی‌از مهم‌ترین عوامل موفقیتِ افراد
             هست. توی دنیای کنونی، برنده اون کسی هست که امروز نسبت‌به دیروز
             پیشرفت کرده باشه. اینکه بدونی چطور تمرکز بهتری داشته باشی، چطوری
@@ -129,10 +130,10 @@ const AboutSite = () => {
             جوابِ این چطورها رو سریع‌تر پیدا کنی و راحت‌تر در مسیر پیشرفت قرار
             بگیری.
           </p>
-          <h2 className="text-xl md:text-xl font-black">
+          <h2 className="text-xl md:text-xl font-bold">
             خلاصه کتاب های مدیریت و رهبری
           </h2>
-          <p className="text-sm text-justify text-gray-700 font-normal leading-6">
+          <p className="text-sm text-justify text-chekida-slate font-normal leading-6">
             رئیس اون کسی هست که دستور میده، مدیر کسی هست که دستور میده و روند رو
             زیر نظر می‌گیره؛ اما رهبر کسی هست که دستور میده و خودش به‌عنوان
             اولین‌نفر، آستین‌ها رو برای انجام‌دادنِ کارها بالا می‌زنه. توی دنیا
@@ -165,20 +166,7 @@ const AboutSite = () => {
           {!openMore ? "بیشتر" : "بستن"}
         </p>
         <span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-            className={`w-5 h-5 ${openMore && "rotate-180"}`}
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-            />
-          </svg>
+          <FiChevronDown size={20} className={openMore && "rotate-180"} />
         </span>
       </div>
     </div>

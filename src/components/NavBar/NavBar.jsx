@@ -11,9 +11,12 @@ const NavBar = () => {
 
     console.log(open);
   return (
-    <div>
-      <NavUp handleOpen={handleOpen} setOpen={setOpen}  open={open}/>
-      <MenuBar open={ open} />
+    <div className="relative">
+      <NavUp handleOpen={handleOpen} setOpen={setOpen} open={open} />
+      <MenuBar open={open} />
+      {/* {open ? (
+        <div className="w-screen h-screen z-10 absolute top-0 bg-black opacity-50"></div>
+      ) : null} */}
     </div>
   );
 };

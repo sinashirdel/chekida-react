@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 import newstbooks from "./booksList";
 
 export const bookContext = createContext();
@@ -10,3 +10,7 @@ const BookContext = ({ children }) => {
 };
 
 export default BookContext;
+
+export function useBooks() {
+  return useContext(bookContext);
+}

@@ -1,20 +1,13 @@
 import React, { useState } from "react";
+import { FiChevronDown } from "react-icons/fi";
 
-const AboutBook = ({ props, about }) => {
+const AboutBook = ({ about }) => {
   const [openMore, setOpenMore] = useState(false);
   return (
-    <div
-      className={`${
-        !props && "container"
-      } xl:max-w-[1100px] flex flex-col my-8  justify-between items-center`}
-    >
-      <h1
-        className={`text-xl md:text-2xl font-black w-full ${
-          !props && "text-center"
-        }`}
-      >
-        {!props ? "وبسایت و اپلیکیشن خلاصه کتاب" : "درباره ی کتاب"}
-      </h1>
+    <div className="container xl:max-w-[1100px] flex flex-col my-8  justify-between items-center">
+      <h4 className="text-lg md:text-2xl font-bold w-full text-right">
+        درباره ی کتاب
+      </h4>
       <p
         className={`text-sm text-justify ${
           !openMore ? "h-32" : "h-auto"
@@ -43,22 +36,8 @@ const AboutBook = ({ props, about }) => {
         <p className="text-sm font-semibold ml-2 ">
           {!openMore ? "بیشتر" : "بستن"}
         </p>
-        <span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-            className={`w-5 h-5 ${openMore && "rotate-180"}`}
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-            />
-          </svg>
-        </span>
+
+        <FiChevronDown size={20} className={openMore && "rotate-180"} />
       </div>
     </div>
   );
