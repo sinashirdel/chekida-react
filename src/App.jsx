@@ -10,7 +10,7 @@ import CategoriesNames from "./components/Category/CategoriesNames";
 import { useState } from "react";
 import MyLibrary from "./components/Books/MyLibrary";
 import Layout from "./components/Layout/Layout";
-import New from "./components/Books/new";
+
 
 function App() {
   const [favourites, setFavourites] = useState([]);
@@ -47,7 +47,6 @@ function App() {
               />
               <Route index element={<Landing />} />
             </Route>
-            <Route path="/app" element={<New />}/>
           </Routes>
         </BookContext>
       </AuthProvider>
