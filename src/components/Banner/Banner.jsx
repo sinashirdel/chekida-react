@@ -20,7 +20,7 @@ const Banner = ({ id, color, titleFree }) => {
 
           <div className="flex flex-col lg:items-start gap-y-4 lg:justify-around lg:h-56">
             <h1
-              className={`${color.textOne} text-center text-2xl md:text-3xl lg:text-6xl font-black`}
+              className={`${color.textOne} text-center text-2xl md:text-3xl lg:text-5xl xl:text-6xl font-black`}
             >
               {titleFree ? "خلاصه کتاب رایگان هفته" : "به پیشنهاد چکیدا بخون"}
             </h1>

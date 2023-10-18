@@ -2,9 +2,8 @@ import { createContext, useContext, useReducer } from "react";
 
 const AuthContext = createContext();
 const initialState = {
-  user: null,
-  username: null,
-  password: null,
+  name: null,
+  phoneNumber: null,
   isAuthenticated: false,
 };
 
@@ -12,15 +11,14 @@ function authReducer(state, action) {
   switch (action.type) {
     case "login":
       return {
-        username: action.payload.username,
-        password: action.payload.password,
+        name: action.payload.name,
+        phoneNumber: action.payload.phoneNumber,
         isAuthenticated: true,
       };
     case "logout":
       return {
-        user: null,
-        username: null,
-        password: null,
+        name: null,
+        phoneNumber: null,
         isAuthenticated: false,
       };
     default:
@@ -29,17 +27,17 @@ function authReducer(state, action) {
 }
 
 const AuthProvider = ({ children }) => {
-  const [{user , username , password , isAuthenticated}, dispatch] = useReducer(authReducer, initialState);
+  const [{ name , phoneNumber , isAuthenticated}, dispatch] = useReducer(authReducer, initialState);
 
-  function login(username, password) {
-    dispatch({ type: "login", payload: { username, password } });
+  function login(name, phoneNumber) {
+    dispatch({ type: "login", payload: { name, phoneNumber } });
   }
 
   function logout() {
     dispatch({ type: "logout" });
   }
   return (
-    <AuthContext.Provider value={{ username , password, login, logout, isAuthenticated }}>
+    <AuthContext.Provider value={{ name , phoneNumber, login, logout, isAuthenticated }}>
       {children}
     </AuthContext.Provider>
   );

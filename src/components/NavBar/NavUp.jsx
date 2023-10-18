@@ -1,39 +1,57 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../Context/AuthProvider";
 import toast from "react-hot-toast";
 import { BiSolidUser } from "react-icons/bi";
-import { LuLogIn } from "react-icons/lu";
-import {RiSearchLine} from "react-icons/ri"
-import {HiMenu} from "react-icons/hi"
-import {IoClose} from "react-icons/io5"
-import {PiMedalFill} from "react-icons/pi"
+import { LuLogIn, LuLogOut } from "react-icons/lu";
+import { RiSearchLine } from "react-icons/ri";
+import { HiMenu } from "react-icons/hi";
+import { IoClose, IoMoon } from "react-icons/io5";
+import { PiMedalFill } from "react-icons/pi";
+import { FiChevronDown } from "react-icons/fi";
+import { useBooks } from "../Context/BookContext";
 
+const NavUp = ({ handleOpen, open }) => {
+  const { name, logout, isAuthenticated } = useAuth();
+  const books = useBooks();
+  const [input, setInput] = useState("");
+  const [search, setSearch] = useState(null);
+  const [accountBox, setAccountBox] = useState(false);
 
-const NavUp = ({ handleOpen , open }) => {
-  const { username, logout, isAuthenticated } = useAuth();
+  useEffect(() => {
+    const searchBooks = books.filter(
+      (b) => b.name.includes(input) || b.writer.includes(input)
+    );
+
+    if (input && input.length >= 1 && input != " ") setSearch(searchBooks);
+    else if (input.length === 0) setSearch(null);
+  }, [input]);
 
   const handleLogout = () => {
-    if (isAuthenticated) {
-      logout();
-      toast.success("شما با موفقیت از حساب کاربری خارج شدید", {
-        style: {
-          color: "white",
-          backgroundColor: "#10b981",
-        },
-        iconTheme: {
-          primary: "white",
-          secondary: "#10b981",
-        },
-      });
-    }
+    logout();
+    toast.success("شما با موفقیت از حساب کاربری خارج شدید", {
+      style: {
+        color: "white",
+        backgroundColor: "#10b981",
+      },
+      iconTheme: {
+        primary: "white",
+        secondary: "#10b981",
+      },
+    });
+    setAccountBox(false)
   };
+
+  const handleAccoutBox = () => {
+    if (isAuthenticated) setAccountBox(!accountBox);
+  };
+
 
   return (
     <div className="bg-white w-full lg:static sticky shadow-md top-0 z-20">
       <nav id="nav" className="flex flex-col relative">
         <div className="container xl:max-w-[1100px] flex row justify-between items-center p-6 lg:px-6 lg:pt-4 lg:pb-2 ">
-          {/* <!-- hamburger menu icon --> */}
+          {/* <!----------------- hamburger menu icon ---------------> */}
           <div
             id="menu"
             onClick={handleOpen}
@@ -45,7 +63,7 @@ const NavUp = ({ handleOpen , open }) => {
               <IoClose size={30} className="text-chekida-slate" />
             )}
           </div>
-          {/* chekida icon */}
+          {/* -------------- chekida icon ------------------- */}
           <Link to="/">
             <svg
               width="110"
@@ -80,17 +98,50 @@ const NavUp = ({ handleOpen , open }) => {
               />
             </svg>
           </Link>
-          {/* <!-- search input --> */}
-          <form className="hidden lg:flex w-1/2 border-2 border-gray-200 justify-between p-3 rounded-xl">
+          {/* <!----------- search input -----------------> */}
+          <form
+            className={`hidden relative lg:flex w-1/2 border-2 border-gray-200 justify-between p-3 ${
+              search ? "rounded-t-xl" : "rounded-xl"
+            }`}
+          >
             <input
               className="text-xs w-full outline-none"
               placeholder="اسم کتاب، نویسنده یا موضوع رو اینجا جست‌وجو کن"
               type="text"
+              onChange={(e) => setInput(e.target.value)}
+              value={input}
             />
             <RiSearchLine size={20} className="text-chekida-slate" />
+            {search && (
+              <div className="absolute z-50 bg-white flex flex-col text-sm gap-2 w-full h-auto top-[48px] right-0 border-2 border-gray-200 p-3 rounded-b-xl">
+                {search &&
+                  search.map((b) => {
+                    if (b.name.includes(input))
+                      return (
+                        <Link
+                          className="hover:text-chekida-green"
+                          onClick={() => setInput("")}
+                          to={`/bookDetail/${b.id}`}
+                        >
+                          {b.name}
+                        </Link>
+                      );
+                    else if (b.writer.includes(input))
+                      return (
+                        <Link
+                          className="hover:text-chekida-green"
+                          onClick={() => setInput("")}
+                          to={`/bookDetail/${b.id}`}
+                        >
+                          {b.writer}
+                        </Link>
+                      );
+                  })}
+              </div>
+            )}
           </form>
-          {/* <!-- account icon --> */}
-          <div className="flex gap-4 ">
+          {/* <!--------------------- account icon ----------------------> */}
+          <div className="flex gap-4 relative">
             <a className="group hidden btn btn-primary px-5 lg:flex lg:w-fit lg:h-auto gap-2 justify-center items-center hover:bg-chekida-slate hover:text-white transition-all">
               <PiMedalFill
                 size={20}
@@ -102,24 +153,46 @@ const NavUp = ({ handleOpen , open }) => {
             </a>
             <Link
               className={`group w-9 h-9 p-0 ${
-                username && "w-fit h-fit p-2"
-              } lg:w-fit lg:h-auto btn lg:px-5 lg:bg-white bg-slate-200 flex gap-2 justify-center items-center lg:hover:bg-chekida-slate hover:text-white transition-all border-0 lg:border-2 border-chekida-slate`}
+                name && "w-fit h-fit p-2"
+              } lg:w-fit lg:h-auto btn lg:px-5 lg:bg-white bg-slate-200 flex gap-2 justify-center items-center lg:hover:bg-chekida-slate lg:hover:text-white transition-all border-0 lg:border-2 border-chekida-slate`}
               to={isAuthenticated ? "/" : "/login"}
-              onClick={handleLogout}
+              onClick={handleAccoutBox}
             >
-              {username ? (
-                <p className="block lg:hidden">{username}</p>
+              {isAuthenticated ? (
+                <div className="flex gap-2 items-center">
+                  <FiChevronDown />
+                  <p className="block lg:hidden">{name}</p>
+                </div>
               ) : (
                 <BiSolidUser
                   size={20}
                   className="text-5xl lg:hidden text-chekida-slate"
                 />
               )}
-              <LuLogIn className="hidden lg:block w-5 h-auto stroke-chekida-slate group-hover:stroke-white" />
+              {!isAuthenticated ? (
+                <LuLogIn className="hidden lg:block w-5 h-auto stroke-chekida-slate group-hover:stroke-white" />
+              ) : (
+                <FiChevronDown className="hidden lg:block w-5 h-auto stroke-chekida-slate group-hover:stroke-white" />
+              )}
               <p className="hidden lg:block text-xs  font-semibold">
-                {username ? username : "ورود / ثبت‌نام"}
+                {isAuthenticated ? name : "ورود / ثبت‌نام"}
               </p>
             </Link>
+            {isAuthenticated && accountBox && (
+              <div className="bg-chekida-slate text-white absolute top-11 lg:top-14 left-0 p-4 flex flex-col gap-4 w-max z-50 rounded-2xl lg:rounded-xl text-sm">
+                <div className="flex gap-2 items-center cursor-pointer">
+                  <BiSolidUser />
+                  <span>پنل کاربری</span>
+                </div>
+                <div
+                  onClick={handleLogout}
+                  className="flex gap-2 items-center cursor-pointer"
+                >
+                  <LuLogOut />
+                  <span>خروج از حساب</span>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </nav>

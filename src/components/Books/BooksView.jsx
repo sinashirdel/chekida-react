@@ -82,12 +82,12 @@ const BooksView = ({ navSlide , books , title , params }) => {
               ))}
             </Swiper>
             <button
-              className={`review-swiper-button-next${navSlide} hidden md:block z-30 absolute bottom-36 left-0 py-3 px-1 rounded-br-xl rounded-tr-xl bg-white opacity-70 shadow-xl`}
+              className={`review-swiper-button-next${navSlide} hidden md:block z-10 absolute bottom-36 left-0 py-3 px-1 rounded-br-xl rounded-tr-xl bg-white opacity-70 shadow-xl`}
             >
               <FaAngleLeft size={30} className="text-chekida-slate" />
             </button>
             <button
-              className={`review-swiper-button-prev${navSlide} hidden md:block z-30 absolute bottom-36 right-0 py-3 px-1 rounded-bl-xl rounded-tl-xl bg-white opacity-70 shadow-xl`}
+              className={`review-swiper-button-prev${navSlide} hidden md:block z-10 absolute bottom-36 right-0 py-3 px-1 rounded-bl-xl rounded-tl-xl bg-white opacity-70 shadow-xl`}
             >
               <FaAngleRight size={30} className="text-chekida-slate" />
             </button>

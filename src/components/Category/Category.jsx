@@ -19,16 +19,16 @@ const Category = ({ book }) => {
         <p className="text-xs md:text-sm lg:text-base font-semibold text-gray-500 ">
           {book.title}
         </p>
-        <p className="text-xs md:text-sm font-semibold text-gray-400 mt-2 md:mt-0">
+        <p className="text-xs md:text-sm font-medium text-gray-400 mt-2 md:mt-0">
           {book.writer}
         </p>
       </div>
-      <div className="flex items-center md:gap-1 text-chekida-green">
-        <p className="text-[10px] md:text-base lg:text-lg w-max font-medium">
+      <div className="flex items-center sm:gap-2 text-chekida-green">
+        <p className="hidden sm:block text-xs md:text-base lg:text-lg w-max font-medium">
           توضیحات بیشتر
         </p>
         <span>
-          <HiOutlineChevronLeft className="text-[10px] md:text-[15px] lg:text-[20px]" />
+          <HiOutlineChevronLeft className="text-xs md:text-[15px] lg:text-[20px]" />
         </span>
       </div>
     </Link>

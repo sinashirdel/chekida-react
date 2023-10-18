@@ -136,7 +136,7 @@ const newstbooks = [
     title: "مثل یک کارآفرینِ ثروتمند فکر کن!",
     img: "/assets/newest-books/grace-of-the-rich.jpg",
     writer: "دین گرازیوسی",
-    category: "موفقیت و توسعه فردی",
+    category: "موفقیت",
     categoryParams: "success",
     time: "27",
     page: "8",

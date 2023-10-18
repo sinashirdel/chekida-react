@@ -1,26 +1,71 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useBooks } from "../Context/BookContext";
 import AboutBook from "../About/AboutBook";
 import { IoDocumentTextOutline, IoMicOutline } from "react-icons/io5";
-import BooksView from "./BooksView";
 import SimilarBooks from "./SimilarBooks";
-import {FaBookOpen} from "react-icons/fa"
-import { BiSolidTime , BiSolidCategory } from "react-icons/bi";
+import { FaBookOpen } from "react-icons/fa";
+import { BiSolidTime, BiSolidCategory } from "react-icons/bi";
+import { GoHeart, GoHeartFill } from "react-icons/go";
+import toast from "react-hot-toast";
+import { useAuth } from "../Context/AuthProvider";
 
-const BookDetails = () => {
+const BookDetails = ({
+  favourites,
+  handleDeleteFavourite,
+  handleAddFavourite,
+}) => {
+  const navigate = useNavigate()
+  const { isAuthenticated } = useAuth();
   const booksContext = useBooks();
   console.log(booksContext);
   const { id } = useParams();
   const book = booksContext.find((b) => b.id === Number(id));
   console.log(book);
 
+  const isAddToFavourite = favourites.find((fav) => fav.id === book.id);
+
+  console.log(favourites, isAddToFavourite);
+
+  const handleAddFav = () => {
+    if (!isAuthenticated) {
+      toast("ابتدا باید وارد حساب کاربری شوید", {
+        style: {
+          color: "black",
+          backgroundColor: "#FED334",
+        },
+        iconTheme: {
+          primary: "white",
+          secondary: "#FED334",
+        },
+      });
+      navigate("/login" , {state : `/bookDetail/${id}`})
+    } else {
+      handleAddFavourite(book);
+      toast.success(`کتاب ${book.name} به کتابخونه اضافه شد`, {
+        style: {
+          color: "white",
+          backgroundColor: "#10b981",
+        },
+        iconTheme: {
+          primary: "white",
+          secondary: "#10b981",
+        },
+      });
+    }
+  };
+
   return (
     <div>
       <div className="container xl:max-w-[1100px] flex flex-col md:flex-row items-center gap-4 md:items-start md:justify-between mt-6">
         {/* <!-- image of book --> */}
         <div className="flex flex-col md:w-1/3 md:pr-12 lg:pr-24 md:gap-4 md:sticky md:top-28 lg:top-28">
-          <img id="imageBook" className="rounded-xl shadow-xl" alt="" src={book.img} />
+          <img
+            id="imageBook"
+            className="rounded-xl shadow-xl"
+            alt=""
+            src={book.img}
+          />
           {/* <!-- download button --> */}
           <div className="hidden md:flex md:flex-col lg:flex-row items-center md:gap-2 lg:gap-0 lg:justify-evenly bg-emerald-400 rounded-xl p-2 py-3 md:text-xs xl:text-base font-semibold">
             <a className="flex items-center" href="">
@@ -48,7 +93,7 @@ const BookDetails = () => {
             </h3>
           </div>
           {/* <!-- details --> */}
-          <div className="container flex w-full md:gap-4 md:justify-start justify-evenly items-center text-xs lg:text-base">
+          <div className="container flex w-full md:gap-4 md:justify-start items-center text-xs lg:text-base">
             <div className="flex w-1/3 md:w-fit flex-col md:flex-row items-center gap-1 md:border border-slate-900 md:p-2 rounded-xl md:justify-center">
               <div>
                 <div className="border-2 md:border-0 w-fit rounded-xl border-slate-900 p-2 md:p-0">
@@ -74,6 +119,33 @@ const BookDetails = () => {
                 </div>
               </div>
               <p>{book.page} صفحه</p>
+            </div>
+            <div className="flex w-1/3 md:w-fit flex-col md:flex-row items-center gap-1 md:border border-slate-900 md:p-2 rounded-xl md:justify-center">
+              <div>
+                <div className="border-2 md:border-0 w-fit rounded-xl border-slate-900 p-2 md:p-0">
+                  {isAddToFavourite ? (
+                    <GoHeartFill
+                      onClick={() => {
+                        handleDeleteFavourite(book.id);
+                        toast.success(`کتاب ${book.name} از کتابخونه حذف شد`, {
+                          style: {
+                            color: "black",
+                            backgroundColor: "#FED334",
+                          },
+                          iconTheme: {
+                            primary: "white",
+                            secondary: "#FED334",
+                          },
+                        });
+                      }}
+                      size={20}
+                    />
+                  ) : (
+                    <GoHeart onClick={handleAddFav} size={20} />
+                  )}
+                </div>
+              </div>
+              <p>علاقه مندی</p>
             </div>
           </div>
 
