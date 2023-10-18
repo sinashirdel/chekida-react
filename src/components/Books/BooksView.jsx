@@ -15,12 +15,22 @@ const BooksView = ({ navSlide , books , title , params }) => {
 
   const breakpoint = {
     320: {
+      slidesPerView: 2.5,
+      spaceBetween: 10,
+    },
+
+    370: {
       slidesPerView: 2.7,
       spaceBetween: 10,
     },
 
-    480: {
-      slidesPerView: 3.5,
+    420: {
+      slidesPerView: 3.4,
+      spaceBetween: 10,
+    },
+
+    530: {
+      slidesPerView: 3.8,
       spaceBetween: 30,
     },
     640: {

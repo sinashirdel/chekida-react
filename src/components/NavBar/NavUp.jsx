@@ -155,13 +155,13 @@ const NavUp = ({ handleOpen, open }) => {
               className={`group w-9 h-9 p-0 ${
                 name && "w-fit h-fit p-2"
               } lg:w-fit lg:h-auto btn lg:px-5 lg:bg-white bg-slate-200 flex gap-2 justify-center items-center lg:hover:bg-chekida-slate lg:hover:text-white transition-all border-0 lg:border-2 border-chekida-slate`}
-              to={isAuthenticated ? "/" : "/login"}
+              to={isAuthenticated ? null : "/login"}
               onClick={handleAccoutBox}
             >
               {isAuthenticated ? (
-                <div className="flex gap-2 items-center">
+                <div className="flex gap-2 items-center block lg:hidden">
                   <FiChevronDown />
-                  <p className="block lg:hidden">{name}</p>
+                  <p>{name}</p>
                 </div>
               ) : (
                 <BiSolidUser

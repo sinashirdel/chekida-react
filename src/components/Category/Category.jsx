@@ -28,7 +28,7 @@ const Category = ({ book }) => {
           توضیحات بیشتر
         </p>
         <span>
-          <HiOutlineChevronLeft className="text-xs md:text-[15px] lg:text-[20px]" />
+          <HiOutlineChevronLeft className="text-base lg:text-[20px]" />
         </span>
       </div>
     </Link>
