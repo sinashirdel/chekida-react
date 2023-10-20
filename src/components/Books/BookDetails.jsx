@@ -145,7 +145,7 @@ const BookDetails = ({
                   )}
                 </div>
               </div>
-              <p>علاقه مندی</p>
+              <p>کتابخونه</p>
             </div>
           </div>
 
