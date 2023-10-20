@@ -10,6 +10,7 @@ import CategoriesNames from "./components/Category/CategoriesNames";
 import { useState } from "react";
 import MyLibrary from "./components/Books/MyLibrary";
 import Layout from "./components/Layout/Layout";
+import UserPanel from "./components/UserPanel/UserPanel";
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Toaster />
           <Routes>
             <Route path="/" element={<Layout />}>
+              <Route path="/userPanel" element={<UserPanel />} />
               <Route
                 path="/bookDetail/:id"
                 element={

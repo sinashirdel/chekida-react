@@ -4,7 +4,7 @@ import { FiChevronDown } from "react-icons/fi";
 const AboutBook = ({ about }) => {
   const [openMore, setOpenMore] = useState(false);
   return (
-    <div className="container xl:max-w-[1100px] flex flex-col my-8  justify-between items-center">
+    <div className="container about xl:max-w-[1100px] flex flex-col my-8  justify-between items-center">
       <h4 className="text-lg md:text-2xl font-bold w-full text-right">
         درباره ی کتاب
       </h4>

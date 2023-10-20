@@ -165,7 +165,7 @@ const BookDetails = ({
           </section>
 
           {/* <!-- about book --> */}
-          <AboutBook about={book.about} />
+          <AboutBook about={book.about} id={book.id} />
 
           {/* Similar books  */}
           <div className="w-full">

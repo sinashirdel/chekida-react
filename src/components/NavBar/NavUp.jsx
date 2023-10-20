@@ -39,7 +39,6 @@ const NavUp = ({ handleOpen, open }) => {
         secondary: "#10b981",
       },
     });
-    setAccountBox(false)
   };
 
   const handleAccoutBox = () => {
@@ -159,7 +158,7 @@ const NavUp = ({ handleOpen, open }) => {
               onClick={handleAccoutBox}
             >
               {isAuthenticated ? (
-                <div className="flex gap-2 items-center block lg:hidden">
+                <div className="flex gap-2 items-center lg:hidden">
                   <FiChevronDown />
                   <p>{name}</p>
                 </div>
@@ -179,11 +178,11 @@ const NavUp = ({ handleOpen, open }) => {
               </p>
             </Link>
             {isAuthenticated && accountBox && (
-              <div className="bg-chekida-slate text-white absolute top-11 lg:top-14 left-0 p-4 flex flex-col gap-4 w-max z-50 rounded-2xl lg:rounded-xl text-sm">
-                <div className="flex gap-2 items-center cursor-pointer">
+              <div className="bg-chekida-slate text-white absolute top-11 lg:top-14 left-0 p-4 flex flex-col gap-4 w-max z-50 rounded-2xl lg:rounded-xl text-sm" onClick={()=> setAccountBox(false)}>
+                <Link to="/userPanel" className="flex gap-2 items-center cursor-pointer">
                   <BiSolidUser />
                   <span>پنل کاربری</span>
-                </div>
+                </Link>
                 <div
                   onClick={handleLogout}
                   className="flex gap-2 items-center cursor-pointer"
