@@ -11,6 +11,7 @@ import { useState } from "react";
 import MyLibrary from "./components/Books/MyLibrary";
 import Layout from "./components/Layout/Layout";
 import UserPanel from "./components/UserPanel/UserPanel";
+import ProtectedRoute from "./components/ProtectedRoute.jsx/ProtectedRoute";
 
 
 function App() {
@@ -29,7 +30,14 @@ function App() {
           <Toaster />
           <Routes>
             <Route path="/" element={<Layout />}>
-              <Route path="/userPanel" element={<UserPanel />} />
+              <Route
+                path="/userPanel"
+                element={
+                  <ProtectedRoute>
+                    <UserPanel />
+                  </ProtectedRoute>
+                }
+              />
               <Route
                 path="/bookDetail/:id"
                 element={
