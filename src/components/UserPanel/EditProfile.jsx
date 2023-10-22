@@ -9,11 +9,9 @@ const EditProfile = ({ setEditProfileBox }) => {
     editPhoneNumber: `${phoneNumber}`,
   });
 
-  console.log(editUser.editName, editUser.phoneNumber);
 
   const handleEditUser = (e) => {
     setEditUser({ ...editUser, [e.target.name]: [e.target.value] });
-    console.log(e.target.value);
   };
 
   const submitEdit = () => {

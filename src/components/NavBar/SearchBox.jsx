@@ -12,7 +12,6 @@ const SearchBox = ({ setSearchBox, setOpen }) => {
     const searchBooks = books.filter(
       (b) => b.name.includes(input) || b.writer.includes(input)
     );
-    console.log(searchBooks);
     if (input && input.length >= 1 && input != " ") setSearch(searchBooks);
     else if (input.length === 0) setSearch(null);
   }, [input]);

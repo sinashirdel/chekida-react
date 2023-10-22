@@ -15,17 +15,14 @@ const BookDetails = ({
   handleDeleteFavourite,
   handleAddFavourite,
 }) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { isAuthenticated } = useAuth();
   const booksContext = useBooks();
-  console.log(booksContext);
+
   const { id } = useParams();
   const book = booksContext.find((b) => b.id === Number(id));
-  console.log(book);
 
   const isAddToFavourite = favourites.find((fav) => fav.id === book.id);
-
-  console.log(favourites, isAddToFavourite);
 
   const handleAddFav = () => {
     if (!isAuthenticated) {
@@ -39,7 +36,7 @@ const BookDetails = ({
           secondary: "#FED334",
         },
       });
-      navigate("/login" , {state : `/bookDetail/${id}`})
+      navigate("/login", { state: `/bookDetail/${id}` });
     } else {
       handleAddFavourite(book);
       toast.success(`کتاب ${book.name} به کتابخونه اضافه شد`, {
@@ -68,10 +65,14 @@ const BookDetails = ({
           />
           {/* <!-- download button --> */}
           <div className="hidden md:flex md:flex-col lg:flex-row items-center md:gap-2 lg:gap-0 lg:justify-evenly bg-emerald-400 rounded-xl p-2 py-3 md:text-xs xl:text-base font-semibold">
-            <a className="flex items-center" href="">
+            <Link
+              to={`/readBooks/${book.id}`}
+              className="flex items-center"
+              href=""
+            >
               <IoDocumentTextOutline size={20} />
               <p>خلاصه متنی</p>
-            </a>
+            </Link>
             <a className="flex items-center" href="">
               <IoMicOutline size={20} />
               <p>خلاصه صوتی</p>
@@ -152,10 +153,10 @@ const BookDetails = ({
           {/* <!-- download button --> */}
           <section className="w-full container md:hidden sticky top-28 z-10 my-8">
             <div className="flex justify-around bg-emerald-400 rounded-xl p-4 font-semibold">
-              <a className="flex gap-2" href="">
+              <Link to={`/readBooks/${book.id}`} className="flex gap-2" href="">
                 <IoDocumentTextOutline size={20} />
                 <p>خلاصه متنی</p>
-              </a>
+              </Link>
               <a className="flex gap-2" href="">
                 <IoMicOutline size={20} />
 

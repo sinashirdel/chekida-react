@@ -18,7 +18,6 @@ const Landing = () => {
     .reverse(books)
     .filter((b) => b.categoryParams === "psychology");
 
-  console.log(successBooks);
   return (
     <div>
       <Banner

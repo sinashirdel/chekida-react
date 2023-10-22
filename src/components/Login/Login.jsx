@@ -40,7 +40,6 @@ const Login = () => {
     validateOnMount: true,
   });
 
-  console.log(formik.errors);
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -59,8 +58,7 @@ const Login = () => {
       );
     }
   }, [isAuthenticated, navigate]);
-
-  console.log(location.state);
+;
   return (
     <div>
       <div className="container relative mt-28 mb-36 w-full px-8 flex flex-col gap-6 justify-between items-center max-w-[400px]">

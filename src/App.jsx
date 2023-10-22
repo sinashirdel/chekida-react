@@ -12,6 +12,8 @@ import MyLibrary from "./components/Books/MyLibrary";
 import Layout from "./components/Layout/Layout";
 import UserPanel from "./components/UserPanel/UserPanel";
 import ProtectedRoute from "./components/ProtectedRoute.jsx/ProtectedRoute";
+import ReadLayout from "./components/ReadLayout/ReadLayout";
+import ReadBook from "./components/ReadLayout/ReadBook";
 
 
 function App() {
@@ -23,6 +25,9 @@ function App() {
   const handleDeleteFavourite = (id) => {
     setFavourites((preFav) => preFav.filter((fav) => fav.id !== id));
   };
+
+  const [settingBox, setSettingBox] = useState(false);
+  const [editRead , setEditRead] = useState("default")
   return (
     <>
       <AuthProvider>
@@ -56,6 +61,24 @@ function App() {
                 element={<MyLibrary favourites={favourites} />}
               />
               <Route index element={<Landing />} />
+            </Route>
+            <Route
+              path="/readBooks"
+              element={
+                <ReadLayout setSettingBox={setSettingBox} editRead={editRead} />
+              }
+            >
+              <Route
+                path="/readBooks/:id"
+                element={
+                  <ReadBook
+                    settingBox={settingBox}
+                    setSettingBox={setSettingBox}
+                    editRead={editRead}
+                    setEditRead={setEditRead}
+                  />
+                }
+              />
             </Route>
           </Routes>
         </BookContext>
