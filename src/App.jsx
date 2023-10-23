@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, ScrollRestoration } from "react-router-dom";
 import BookContext from "./components/Context/BookContext";
 import BookDetails from "./components/Books/BookDetails";
 import Landing from "./components/Landing/Landing";
@@ -14,7 +14,7 @@ import UserPanel from "./components/UserPanel/UserPanel";
 import ProtectedRoute from "./components/ProtectedRoute.jsx/ProtectedRoute";
 import ReadLayout from "./components/ReadLayout/ReadLayout";
 import ReadBook from "./components/ReadLayout/ReadBook";
-
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const [favourites, setFavourites] = useState([]);
@@ -27,12 +27,13 @@ function App() {
   };
 
   const [settingBox, setSettingBox] = useState(false);
-  const [editRead , setEditRead] = useState("default")
+  const [editRead, setEditRead] = useState("default");
   return (
     <>
       <AuthProvider>
         <BookContext>
           <Toaster />
+<ScrollToTop />
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route

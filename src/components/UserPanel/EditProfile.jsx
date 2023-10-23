@@ -26,7 +26,7 @@ const EditProfile = ({ setEditProfileBox }) => {
             <h5 className="font-semibold">ویرایش پروفایل</h5>
             <IoClose
               onClick={() => setEditProfileBox(false)}
-              className="text-gray-500"
+              className="text-gray-500 cursor-pointer"
               size={20}
             />
           </div>

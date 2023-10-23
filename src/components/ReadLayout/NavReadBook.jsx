@@ -25,10 +25,10 @@ const NavReadBook = ({ setSettingBox, editRead }) => {
         </p>
         <div className="flex gap-4">
           <div onClick={() => setSettingBox(true)}>
-            <TbSettings className="text-[25px] md:text-[30px]" />
+            <TbSettings className="text-[25px] md:text-[30px] cursor-pointer" />
           </div>
           <Link to={`/bookDetail/${id}`}>
-            <TbSmartHome className="text-[25px] md:text-[30px]" />
+            <TbSmartHome className="text-[25px] md:text-[30px] cursor-pointer" />
           </Link>
         </div>
       </div>
