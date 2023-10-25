@@ -5,7 +5,10 @@ import { Outlet } from "react-router-dom";
 const ReadLayout = ({ setSettingBox, editRead }) => {
   return (
     <>
-      <NavReadBook setSettingBox={setSettingBox} editRead={editRead} />
+      <NavReadBook
+        setSettingBox={setSettingBox}
+        editRead={editRead}
+      />
       <Outlet />
     </>
   );

@@ -28,12 +28,13 @@ function App() {
 
   const [settingBox, setSettingBox] = useState(false);
   const [editRead, setEditRead] = useState("default");
+  const [fontSize, setFontSize] = useState(16);
   return (
     <>
       <AuthProvider>
         <BookContext>
           <Toaster />
-<ScrollToTop />
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route
@@ -77,6 +78,8 @@ function App() {
                     setSettingBox={setSettingBox}
                     editRead={editRead}
                     setEditRead={setEditRead}
+                    fontSize={fontSize}
+                    setFontSize={setFontSize}
                   />
                 }
               />
