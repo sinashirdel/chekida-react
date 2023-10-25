@@ -2,6 +2,14 @@ import React from "react";
 import { IoClose } from "react-icons/io5";
 
 const SettingBox = ({ setSettingBox, setEditRead, fontSize , setFontSize }) => {
+    const increaseFontHandle = () => {
+        setFontSize(fontSize + 1)
+        if(fontSize >= 30) setFontSize(fontSize)
+    }
+const decreaseFontHandle = () => {
+  setFontSize(fontSize - 1);
+  if (fontSize <= 8) setFontSize(fontSize);
+};
   return (
     <div className="backdrop">
       <div className="container my-32 sm:w-2/3 md:w-1/2 lg:w-1/3">
@@ -38,13 +46,13 @@ const SettingBox = ({ setSettingBox, setEditRead, fontSize , setFontSize }) => {
               الف
             </div>
             <div
-              onClick={() => setFontSize(fontSize + 1)}
+              onClick={increaseFontHandle}
               className="bg-chekida-slate text-chekida-green text-center p-2 md:p-3 rounded-lg"
             >
               افزایش اندازه
             </div>
             <div
-              onClick={() => setFontSize(fontSize - 1)}
+              onClick={decreaseFontHandle}
               className="bg-chekida-green text-chekida-slate text-center p-2 md:p-3 rounded-lg"
             >
               کاهش اندازه
