@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useAuth } from "../Context/AuthProvider";
 import { HiOutlineCamera } from "react-icons/hi2";
 import { LiaUserEditSolid } from "react-icons/lia";
@@ -10,6 +10,12 @@ import { Link } from "react-router-dom";
 const UserPanel = () => {
   const { name } = useAuth();
   const [editProfileBox, setEditProfileBox] = useState(false);
+  const [copy, setCopy] = useState("کپی");
+  const copyRef = useRef();
+  const copyHandle = () => {
+    navigator.clipboard.writeText(copyRef.current.innerText);
+    setCopy("کپی شد");
+  };
   return (
     <div className="container xl:max-w-[1100px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-24 w-full">
       <div className="bg-white relative grid gird-cols-2 grid-rows-6 gap-4 p-6 shadow-lg rounded-3xl md:rounded-2xl">
@@ -25,10 +31,12 @@ const UserPanel = () => {
         </div>
         <div className="flex flex-col justify-between">
           <p className="font-semibold">کد دعوت</p>
-          <p className="text-xs">07e84c</p>
+          <p ref={copyRef} className="text-xs">
+            07e84c
+          </p>
         </div>
         <div className="flex items-center justify-center font-medium bg-blue-200 rounded-xl text-blue-500">
-          <p>کپی</p>
+          <button onClick={copyHandle}>{copy}</button>
         </div>
         <div
           className="col-span-2 btn text-center text-base flex gap-2 justify-center items-center"
@@ -51,7 +59,10 @@ const UserPanel = () => {
         <Link to="/myLibrary" className="text-lg font-semibold lg:text-2xl">
           کتابخونه ی من
         </Link>
-        <Link to="/myLibrary" className="hidden lg:block btn border-chekida-slate hover:bg-white transition-all">
+        <Link
+          to="/myLibrary"
+          className="hidden lg:block btn border-chekida-slate hover:bg-white transition-all"
+        >
           رفتن به کتابخونه
         </Link>
       </div>

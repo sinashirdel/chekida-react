@@ -25,7 +25,7 @@ const ReadBook = ({
           : editRead === "dark"
           ? "bg-[#121212]"
           : "bg-gray-50"
-      } py-12`}
+      } pt-12 pb-48`}
     >
       <div className="container xl:max-w-[800px]">
         <div

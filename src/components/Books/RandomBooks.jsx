@@ -1,14 +1,13 @@
 import React from "react";
 import { useBooks } from "../Context/BookContext";
 import BookInRandom from "./BookInRandom";
-import {chooseRandom} from "../../func/randomPick"
+import { chooseRandom } from "../../func/randomPick";
 
 const RandomBooks = () => {
   const booksList = useBooks();
 
- 
-const books = chooseRandom(booksList , 4)
-console.log(books)
+  const books = chooseRandom(booksList, 4);
+
   return (
     <div className="xl:max-w-[1100px] container flex flex-col gap-2">
       <h4 className="text-xl md:text-2xl font-bold">کتاب های شانسی</h4>
