@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useAuth } from "../Context/AuthProvider";
-import { useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -12,9 +11,7 @@ const initialValues = {
 };
 
 const Login = () => {
-  const { login, isAuthenticated } = useAuth();
-  const navigate = useNavigate();
-  const location = useLocation();
+  const { login } = useAuth();
 
   const validationSchema = Yup.object({
     name: Yup.string()
@@ -77,24 +74,6 @@ const Login = () => {
     validationSchema,
     validateOnMount: true,
   });
-
-  useEffect(() => {
-    if (isAuthenticated) {
-      toast.success("شما با موفقیت وارد حساب کاربری شدید", {
-        style: {
-          color: "white",
-          backgroundColor: "#10b981",
-        },
-        iconTheme: {
-          primary: "white",
-          secondary: "#10b981",
-        },
-      });
-      navigate(
-        `${location.state === `${location.state}` ? `${location.state}` : "/"}`
-      );
-    }
-  }, [isAuthenticated, navigate]);
 
   return (
     <div>

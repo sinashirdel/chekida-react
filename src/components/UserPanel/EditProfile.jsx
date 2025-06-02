@@ -5,10 +5,9 @@ import { useAuth } from "../Context/AuthProvider";
 const EditProfile = ({ setEditProfileBox }) => {
   const { name, phoneNumber, editProfile } = useAuth();
   const [editUser, setEditUser] = useState({
-    editName: `${name}`,
-    editPhoneNumber: `${phoneNumber}`,
+    editName: name,
+    editPhoneNumber: phoneNumber,
   });
-
 
   const handleEditUser = (e) => {
     setEditUser({ ...editUser, [e.target.name]: [e.target.value] });
@@ -20,8 +19,8 @@ const EditProfile = ({ setEditProfileBox }) => {
   };
   return (
     <div className="backdrop">
-      <div className="container my-32 sm:w-2/3 md:w-1/2 lg:w-1/3">
-        <div className="bg-white p-3 rounded-xl">
+      <div className="container my-32 sm:w-2/3 md:w-1/2 lg:w-1/3 max-w-[500px]">
+        <div className="bg-white p-4 rounded-xl">
           <div className="flex justify-between items-center">
             <h5 className="font-semibold">ویرایش پروفایل</h5>
             <IoClose
@@ -53,7 +52,10 @@ const EditProfile = ({ setEditProfileBox }) => {
             </div>
           </form>
           <div>
-            <button className="w-full btn btn-primary text-lg" onClick={submitEdit}>
+            <button
+              className="w-full btn btn-primary text-lg"
+              onClick={submitEdit}
+            >
               ثبت
             </button>
           </div>

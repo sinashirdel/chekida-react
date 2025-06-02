@@ -27,42 +27,42 @@ const decreaseFontHandle = () => {
           <hr className="w-full border-2" />
 
           <div className="grid grid-cols-3 gap-3 md:gap-6 text-xs md:text-base font-medium">
-            <div
+            <button
               onClick={() => setEditRead("readMore")}
               className="bg-[#E3DECD] text-[#544703] text-center p-2 md:p-3 rounded-lg"
             >
               الف
-            </div>
-            <div
+            </button>
+            <button
               onClick={() => setEditRead("default")}
               className="bg-gray-200 text-[#404040] text-center p-2 md:p-3 rounded-lg"
             >
               الف
-            </div>
-            <div
+            </button>
+            <button
               onClick={() => setEditRead("dark")}
               className="bg-[#404040] text-[#CDCDCD] text-center p-2 md:p-3 rounded-lg"
             >
               الف
-            </div>
-            <div
+            </button>
+            <button
               onClick={increaseFontHandle}
               className="bg-chekida-slate text-chekida-green text-center p-2 md:p-3 rounded-lg"
             >
               افزایش اندازه
-            </div>
-            <div
+            </button>
+            <button
               onClick={decreaseFontHandle}
               className="bg-chekida-green text-chekida-slate text-center p-2 md:p-3 rounded-lg"
             >
               کاهش اندازه
-            </div>
-            <div
+            </button>
+            <button
               onClick={() => setFontSize(16)}
               className="bg-black text-gray-50 text-center p-2 md:p-3 rounded-lg"
             >
               اندازه پیش‌فرض
-            </div>
+            </button>
           </div>
         </div>
       </div>

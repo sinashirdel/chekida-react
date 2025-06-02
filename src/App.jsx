@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import BookContext from "./components/Context/BookContext";
 import BookDetails from "./components/Books/BookDetails";
 import Landing from "./components/Landing/Landing";
@@ -27,6 +27,7 @@ function AppContent() {
     updatePreferences,
     addFavourite,
     removeFavourite,
+    isAuthenticated,
   } = useAuth();
 
   const { favourites, settingBox, editRead, fontSize } = preferences;
@@ -75,7 +76,10 @@ function AppContent() {
               />
             }
           />
-          <Route path="/login" element={<Login />} />
+          <Route
+            path="/login"
+            element={isAuthenticated ? <Navigate to="/" replace /> : <Login />}
+          />
           <Route path="/CategoriesNames" element={<CategoriesNames />} />
           <Route path="/categories" element={<Categories />} />
           <Route

@@ -95,17 +95,20 @@ const BookDetails = ({
           </div>
           {/* <!-- details --> */}
           <div className="container flex w-full md:gap-4 md:justify-start items-center text-xs lg:text-base">
-            <div className="flex w-1/3 md:w-fit flex-col md:flex-row items-center gap-1 md:border border-slate-900 md:p-2 rounded-xl md:justify-center">
+            <Link
+              to={`/categories?category=${book.categoryParams}`}
+              className="flex w-1/3 md:w-fit flex-col md:flex-row items-center gap-1 md:border border-slate-900 md:p-2 rounded-xl md:justify-center hover:bg-slate-200 cursor-pointer transition-all"
+            >
               <div>
                 <div className="border-2 md:border-0 w-fit rounded-xl border-slate-900 p-2 md:p-0">
                   <BiSolidCategory size={20} />
                 </div>
               </div>
-              <Link to={`/categories?category=${book.categoryParams}`}>
+              <div>
                 <p>{book.category}</p>
-              </Link>
-            </div>
-            <div className="flex w-1/3 md:w-fit flex-col md:flex-row items-center gap-1 md:border border-slate-900 md:p-2 rounded-xl md:justify-center">
+              </div>
+            </Link>
+            <div className="flex w-1/3 md:w-fit flex-col md:flex-row items-center gap-1 md:border border-slate-900 md:p-2 rounded-xl md:justify-center hover:bg-slate-200 cursor-pointer transition-all">
               <div>
                 <div className="border-2 md:border-0 w-fit rounded-xl border-slate-900 p-2 md:p-0">
                   <BiSolidTime size={20} />
@@ -113,7 +116,7 @@ const BookDetails = ({
               </div>
               <p>{book.time} دقیقه</p>
             </div>
-            <div className="flex w-1/3 md:w-fit flex-col md:flex-row items-center gap-1 md:border border-slate-900 md:p-2 rounded-xl md:justify-center">
+            <div className="flex w-1/3 md:w-fit flex-col md:flex-row items-center gap-1 md:border border-slate-900 md:p-2 rounded-xl md:justify-center hover:bg-slate-200 cursor-pointer transition-all">
               <div>
                 <div className="border-2 md:border-0 w-fit rounded-xl border-slate-900 p-2 md:p-0">
                   <FaBookOpen size={20} />
@@ -121,33 +124,37 @@ const BookDetails = ({
               </div>
               <p>{book.page} صفحه</p>
             </div>
-            <div className="flex w-1/3 md:w-fit flex-col md:flex-row items-center gap-1 md:border border-slate-900 md:p-2 rounded-xl md:justify-center">
+            <button
+              onClick={() => {
+                if (isAddToFavourite) {
+                  handleDeleteFavourite(book.id);
+                  toast.success(`کتاب ${book.name} از کتابخونه حذف شد`, {
+                    style: {
+                      color: "black",
+                      backgroundColor: "#FED334",
+                    },
+                    iconTheme: {
+                      primary: "white",
+                      secondary: "#FED334",
+                    },
+                  });
+                } else {
+                  handleAddFav();
+                }
+              }}
+              className="flex w-1/3 md:w-fit flex-col md:flex-row items-center gap-1 md:border border-slate-900 md:p-2 rounded-xl md:justify-center hover:bg-slate-200 cursor-pointer transition-all"
+            >
               <div>
                 <div className="border-2 md:border-0 w-fit rounded-xl border-slate-900 p-2 md:p-0">
                   {isAddToFavourite ? (
-                    <GoHeartFill
-                      onClick={() => {
-                        handleDeleteFavourite(book.id);
-                        toast.success(`کتاب ${book.name} از کتابخونه حذف شد`, {
-                          style: {
-                            color: "black",
-                            backgroundColor: "#FED334",
-                          },
-                          iconTheme: {
-                            primary: "white",
-                            secondary: "#FED334",
-                          },
-                        });
-                      }}
-                      size={20}
-                    />
+                    <GoHeartFill fill="red" size={20} />
                   ) : (
-                    <GoHeart onClick={handleAddFav} size={20} />
+                    <GoHeart size={20} />
                   )}
                 </div>
               </div>
               <p>کتابخونه</p>
-            </div>
+            </button>
           </div>
 
           {/* <!-- download button --> */}

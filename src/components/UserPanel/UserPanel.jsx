@@ -26,18 +26,21 @@ const UserPanel = () => {
           <p className="font-semibold">مدت باقی مونده</p>
           <p className="text-xs">0 روز</p>
         </div>
-        <div className="flex items-center justify-center font-medium bg-red-200 rounded-xl text-red-500">
-          <p>اشتراک نداری</p>
-        </div>
+        <button className="flex items-center justify-center font-medium bg-red-200 rounded-xl text-red-500">
+          اشتراک نداری
+        </button>
         <div className="flex flex-col justify-between">
           <p className="font-semibold">کد دعوت</p>
           <p ref={copyRef} className="text-xs">
             07e84c
           </p>
         </div>
-        <div className="flex items-center justify-center font-medium bg-blue-200 rounded-xl text-blue-500">
-          <button onClick={copyHandle}>{copy}</button>
-        </div>
+        <button
+          onClick={copyHandle}
+          className="flex items-center justify-center font-medium bg-blue-200 rounded-xl text-blue-500"
+        >
+          {copy}
+        </button>
         <div
           className="col-span-2 btn text-center text-base flex gap-2 justify-center items-center"
           onClick={() => setEditProfileBox(true)}
