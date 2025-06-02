@@ -45,11 +45,10 @@ const NavUp = ({ handleOpen, open }) => {
     if (isAuthenticated) setAccountBox(!accountBox);
   };
 
-
   return (
-    <div className="bg-white w-full lg:static sticky shadow-md top-0 z-20">
+    <div className="bg-white w-full lg:static sticky max-md:shadow-md top-0 z-50">
       <nav id="nav" className="flex flex-col relative">
-        <div className="container xl:max-w-[1100px] flex row justify-between items-center p-6 lg:px-6 lg:pt-4 lg:pb-2 ">
+        <div className="container xl:max-w-[1100px] flex row justify-between items-center p-4 lg:px-6 lg:pt-4 lg:pb-2 ">
           {/* <!----------------- hamburger menu icon ---------------> */}
           <div
             id="menu"
@@ -178,8 +177,14 @@ const NavUp = ({ handleOpen, open }) => {
               </p>
             </Link>
             {isAuthenticated && accountBox && (
-              <div className="bg-chekida-slate text-white absolute top-11 lg:top-14 left-0 p-4 flex flex-col gap-4 w-max z-50 rounded-2xl lg:rounded-xl text-sm" onClick={()=> setAccountBox(false)}>
-                <Link to="/userPanel" className="flex gap-2 items-center cursor-pointer">
+              <div
+                className="bg-chekida-slate text-white absolute top-11 lg:top-14 left-0 p-4 flex flex-col gap-4 w-max z-50 rounded-2xl lg:rounded-xl text-sm"
+                onClick={() => setAccountBox(false)}
+              >
+                <Link
+                  to="/userPanel"
+                  className="flex gap-2 items-center cursor-pointer"
+                >
                   <BiSolidUser />
                   <span>پنل کاربری</span>
                 </Link>

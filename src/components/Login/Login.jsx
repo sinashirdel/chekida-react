@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { FcGoogle } from "react-icons/fc";
 
 const initialValues = {
   name: "",
@@ -33,13 +34,49 @@ const Login = () => {
     }
   };
 
+  const handleGoogleLogin = async () => {
+    try {
+      // Initialize Google OAuth
+      const client = window.google.accounts.oauth2.initTokenClient({
+        client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID, // Use environment variable
+        scope: "email profile",
+        callback: async (response) => {
+          if (response.access_token) {
+            // Get user info using the access token
+            const userInfo = await fetch(
+              "https://www.googleapis.com/oauth2/v3/userinfo",
+              {
+                headers: { Authorization: `Bearer ${response.access_token}` },
+              }
+            ).then((res) => res.json());
+
+            // Login with Google user info
+            login(userInfo.name, null, userInfo.email, userInfo.sub);
+          }
+        },
+      });
+
+      client.requestAccessToken();
+    } catch (error) {
+      toast.error("خطا در ورود با گوگل", {
+        style: {
+          color: "white",
+          backgroundColor: "#ef4444",
+        },
+        iconTheme: {
+          primary: "white",
+          secondary: "#ef4444",
+        },
+      });
+    }
+  };
+
   const formik = useFormik({
     initialValues,
     onSubmit,
     validationSchema,
     validateOnMount: true,
   });
-
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -58,7 +95,7 @@ const Login = () => {
       );
     }
   }, [isAuthenticated, navigate]);
-;
+
   return (
     <div>
       <div className="container relative mt-28 mb-36 w-full px-8 flex flex-col gap-6 justify-between items-center max-w-[400px]">
@@ -109,9 +146,22 @@ const Login = () => {
           </div>
           <button
             disabled={!formik.isValid}
-            className="w-full btn btn-primary disabled:hover:bg-red-600 disabled:hover:text-white disabled:hover:border-red-600"
+            className="w-full btn btn-primary disabled:bg-gray-400 disabled:text-gray-600 disabled:border-gray-600 disabled:cursor-not-allowed mt-6"
           >
             ورود به چکیدا
+          </button>
+          <div className="relative flex items-center justify-center">
+            <div className="border-t border-gray-300 w-full"></div>
+            <span className="px-4 text-sm text-gray-500">یا</span>
+            <div className="border-t border-gray-300 w-full"></div>
+          </div>
+          <button
+            type="button"
+            onClick={handleGoogleLogin}
+            className="w-full btn bg-white border-2 border-gray-300 hover:bg-gray-50 flex items-center justify-center gap-2 transition-all"
+          >
+            <FcGoogle size={20} />
+            <span>ورود با گوگل</span>
           </button>
           <p className="text-xs text-center text-gray-400 font-light">
             با ورود یا ثبت‌نام در چکیدا شما به‌طور خودکار تمام قوانین و مقررات

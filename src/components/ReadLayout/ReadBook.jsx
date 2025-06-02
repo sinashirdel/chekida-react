@@ -15,7 +15,6 @@ const ReadBook = ({
   const { id } = useParams();
   const book = booksContext.find((b) => b.id === Number(id));
 
-  console.log(fontSize)
 
   return (
     <div

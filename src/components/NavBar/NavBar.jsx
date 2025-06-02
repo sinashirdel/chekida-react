@@ -6,13 +6,13 @@ const NavBar = () => {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
-    setOpen(!open)
-  }
+    setOpen(!open);
+  };
   return (
-    <div style={{display : "unset"}}>
+    <>
       <NavUp handleOpen={handleOpen} setOpen={setOpen} open={open} />
       <MenuBar open={open} setOpen={setOpen} />
-    </div>
+    </>
   );
 };
 

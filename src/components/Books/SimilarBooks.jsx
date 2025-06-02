@@ -46,7 +46,6 @@ const SimilarBooks = ({ navSlide, categorySimilar , id }) => {
     },
   };
 
-  console.log(booksList);
   return (
     <div className="mx-auto w-full container my-12 flex flex-col">
       <div className="flex flex-row justify-between items-center">
