@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../Context/AuthProvider";
 import toast from "react-hot-toast";
@@ -17,6 +17,23 @@ const NavUp = ({ handleOpen, open }) => {
   const [input, setInput] = useState("");
   const [search, setSearch] = useState(null);
   const [accountBox, setAccountBox] = useState(false);
+  const accountBoxRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        accountBoxRef.current &&
+        !accountBoxRef.current.contains(event.target)
+      ) {
+        setAccountBox(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   useEffect(() => {
     const searchBooks = books.filter(
@@ -178,6 +195,7 @@ const NavUp = ({ handleOpen, open }) => {
             </Link>
             {isAuthenticated && accountBox && (
               <div
+                ref={accountBoxRef}
                 className="bg-chekida-slate text-white absolute top-11 lg:top-14 left-0 p-4 flex flex-col gap-4 w-max z-50 rounded-2xl lg:rounded-xl text-sm"
                 onClick={() => setAccountBox(false)}
               >
